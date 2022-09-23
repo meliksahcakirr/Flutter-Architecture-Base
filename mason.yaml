@@ -1,0 +1,9 @@
+bricks:
+  bloc_brick:
+    path: bricks/bloc
+  feature:
+    path: bricks/feature
+  package:
+    path: bricks/package
+  cubit:
+    path: bricks/cubit
