@@ -11,8 +11,8 @@ class {{feature_name.pascalCase()}}UseCaseImpl implements {{feature_name.pascalC
   {{feature_name.pascalCase()}}UseCaseImpl(this.{{feature_name.camelCase()}}Repository);
 
   @override
-  Future<Result<{{domain_model_name.pascalCase()}}>> call({required String id}) {
-    return {{feature_name.camelCase()}}Repository.fetch(id: "id");
+  Future<Result<{{domain_model_name.pascalCase()}}>> call(String id) {
+    return {{feature_name.camelCase()}}Repository.fetch(id);
   }
 
 }

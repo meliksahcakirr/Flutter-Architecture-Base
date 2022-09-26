@@ -17,7 +17,7 @@ Future<void> run(HookContext context) async {
 
 Future<void> _generateFreezedFiles() {
   try {
-    Process.run('flutter', ['pub', 'add', 'bloc']);
+    Process.run('flutter', ['pub', 'add', 'flutter_bloc']);
     Process.run('flutter', ['pub', 'add', 'freezed_annotation']);
     Process.run('flutter', ['pub', 'add', '--dev', 'build_runner']);
     Process.run('flutter', ['pub', 'add', '--dev', 'freezed']);

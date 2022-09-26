@@ -12,7 +12,7 @@ class {{feature_name.pascalCase()}}RepositoryImpl implements {{feature_name.pasc
   {{feature_name.pascalCase()}}RepositoryImpl(this.{{feature_name.camelCase()}}RemoteDataSource, this.{{feature_name.camelCase()}}Mapper);
 
   @override
-  Future<Result<{{domain_model_name.pascalCase()}}>> fetch({required String id}) async {
+  Future<Result<{{domain_model_name.pascalCase()}}>> fetch(String id) async {
     try {
       return const Result.success(data: {{domain_model_name.pascalCase()}}(id: ""));
     } catch (e) {
