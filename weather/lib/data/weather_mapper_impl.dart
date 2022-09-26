@@ -6,15 +6,30 @@ class WeatherMapperImpl implements WeatherMapper {
   @override
   Weather map(WeatherRemote weatherRemote) {
     return Weather(
-      condition: WeatherCondition.values[weatherRemote.condition.index],
-      formattedCondition: weatherRemote.formattedCondition,
-      minTemp: weatherRemote.minTemp,
-      temp: weatherRemote.temp,
-      maxTemp: weatherRemote.maxTemp,
-      locationId: weatherRemote.locationId,
-      created: weatherRemote.created,
-      lastUpdated: weatherRemote.lastUpdated,
-      location: weatherRemote.location,
+      condition: _map(weatherRemote.weather[0].main),
+      minTemp: weatherRemote.main.temp_min - 273,
+      temp: weatherRemote.main.temp - 273,
+      maxTemp: weatherRemote.main.temp_max - 273,
+      locationId: weatherRemote.id,
+      lastUpdated: DateTime.fromMicrosecondsSinceEpoch(weatherRemote.dt),
+      location: weatherRemote.name,
     );
+  }
+
+  WeatherCondition _map(String condition) {
+    switch (condition) {
+      case 'Thunderstorm':
+        return WeatherCondition.thunderstorm;
+      case 'Rain':
+        return WeatherCondition.rain;
+      case 'Snow':
+        return WeatherCondition.snow;
+      case 'Clear':
+        return WeatherCondition.clear;
+      case 'Clouds':
+        return WeatherCondition.cloud;
+      default:
+        return WeatherCondition.unknown;
+    }
   }
 }

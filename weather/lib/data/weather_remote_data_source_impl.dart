@@ -8,37 +8,24 @@ import 'weather_remote.dart';
 import 'weather_remote_data_source.dart';
 
 class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
-  static const baseUrl = 'https://www.metaweather.com';
-
+  static const baseUrl = 'https://api.openweathermap.org/data/2.5';
+  static const appId = '36a7bfed29ad589d96cb2d012866aa94';
   final Client client;
 
   WeatherRemoteDataSourceImpl(this.client);
 
   @override
-  Future<Result<WeatherRemote>> fetch(int locationId) async {
-    final weatherUrl = Uri.parse('$baseUrl/api/location/$locationId');
+  Future<Result<WeatherRemote>> fetch(String city) async {
+    http: //api.openweathermap.org/data/2.5/weather?q=London,uk&appid=
+    final weatherUrl = Uri.parse('$baseUrl/weather?q=$city&appid=$appId');
     final weatherResponse = await client.get(weatherUrl);
     if (weatherResponse.statusCode != 200) {
-      throw Result.failure(
+      return Result.failure(
         exception: Exception('error getting weather for location'),
       );
     } else {
       final weatherJson = jsonDecode(weatherResponse.body);
       return Result.success(data: WeatherRemote.fromJson(weatherJson));
-    }
-  }
-
-  @override
-  Future<Result<int>> getLocationId(String city) async {
-    final locationUrl = Uri.parse('$baseUrl/api/location/search/?query=$city');
-    final locationResponse = await client.get(locationUrl);
-    if (locationResponse.statusCode != 200) {
-      throw Result.failure(
-        exception: Exception('error getting locationId for city'),
-      );
-    } else {
-      final locationJson = jsonDecode(locationResponse.body) as List;
-      return Result.success(data: (locationJson.first)['woeid']);
     }
   }
 }

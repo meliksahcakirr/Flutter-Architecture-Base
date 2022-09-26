@@ -14,7 +14,6 @@ import 'location_widget.dart';
 
 class WeatherPage extends StatefulWidget {
   final DiModule diModule = WeatherModule();
-
   WeatherPage({Key? key}) : super(key: key);
 
   @override
@@ -36,6 +35,7 @@ class _WeatherPageState extends State<WeatherPage> {
     return BlocProvider(
       create: (context) => _weatherBloc,
       child: Scaffold(
+        backgroundColor: Colors.blue,
         appBar: AppBar(
           title: const Text('Flutter Weather'),
           actions: [

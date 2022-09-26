@@ -7,15 +7,10 @@ part 'weather.g.dart';
 
 enum WeatherCondition {
   snow,
-  sleet,
-  hail,
   thunderstorm,
-  heavyRain,
-  lightRain,
-  showers,
-  heavyCloud,
-  lightCloud,
+  cloud,
   clear,
+  rain,
   unknown
 }
 
@@ -23,12 +18,10 @@ enum WeatherCondition {
 class Weather with _$Weather {
   const factory Weather({
     required WeatherCondition condition,
-    required String formattedCondition,
     required double minTemp,
     required double temp,
     required double maxTemp,
     required int locationId,
-    required String created,
     required DateTime lastUpdated,
     required String location,
   }) = _Weather;

@@ -14,27 +14,22 @@ class WeatherConditions extends StatelessWidget {
     Image image;
     switch (condition) {
       case WeatherCondition.clear:
-      case WeatherCondition.lightCloud:
-        image = Image.asset('assets/clear.png');
+        image = Image.asset('assets/clear.png', package: 'weather', fit: BoxFit.cover);
         break;
-      case WeatherCondition.hail:
       case WeatherCondition.snow:
-      case WeatherCondition.sleet:
-        image = Image.asset('assets/snow.png');
+        image = Image.asset('assets/snow.png', fit: BoxFit.cover);
         break;
-      case WeatherCondition.heavyCloud:
-        image = Image.asset('assets/cloudy.png');
+      case WeatherCondition.cloud:
+        image = Image.asset('assets/cloudy.png', fit: BoxFit.cover);
         break;
-      case WeatherCondition.heavyRain:
-      case WeatherCondition.lightRain:
-      case WeatherCondition.showers:
-        image = Image.asset('assets/rainy.png');
+      case WeatherCondition.rain:
+        image = Image.asset('assets/rainy.png', fit: BoxFit.cover);
         break;
       case WeatherCondition.thunderstorm:
-        image = Image.asset('assets/thunderstorm.png');
+        image = Image.asset('assets/thunderstorm.png', fit: BoxFit.cover);
         break;
       case WeatherCondition.unknown:
-        image = Image.asset('assets/clear.png');
+        image = Image.asset('assets/clear.png', fit: BoxFit.cover);
         break;
     }
     return image;

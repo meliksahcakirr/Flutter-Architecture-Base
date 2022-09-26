@@ -16,22 +16,11 @@ class WeatherRepositoryImpl implements WeatherRepository {
 
   @override
   Future<Result<Weather>> fetch(String city) async {
-    final locationIdResult = await weatherRemoteDataSource.getLocationId(city);
-    if (locationIdResult is Failure) {
-      return Result.failure(exception: (locationIdResult as Failure).exception);
-    } else {
-      final int locationId = (locationIdResult as Success).data;
-      return await _fetchInternal(locationId);
-    }
-  }
-
-  Future<Result<Weather>> _fetchInternal(int locationId) async {
-    final weatherResult = await weatherRemoteDataSource.fetch(locationId);
+    final weatherResult = await weatherRemoteDataSource.fetch(city);
     late Result<Weather> result;
     weatherResult.when(
-      success: (WeatherRemote data) => {
-        result = Result.success(data: weatherMapper.map(data))
-      },
+      success: (WeatherRemote data) =>
+          {result = Result.success(data: weatherMapper.map(data))},
       failure: (Exception exception) =>
           {result = Result.failure(exception: exception)},
     );

@@ -15,9 +15,11 @@ class Temperature extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 20.0),
+          padding: const EdgeInsets.only(right: 10.0),
           child: Text(
             '${_formattedTemperature(temperature)}°',
             style: const TextStyle(
@@ -46,7 +48,7 @@ class Temperature extends StatelessWidget {
               ),
             )
           ],
-        )
+        ),
       ],
     );
   }

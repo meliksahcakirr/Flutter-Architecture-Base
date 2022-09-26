@@ -14,14 +14,15 @@ class CombinedWeatherTemperature extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(4),
               child: WeatherConditions(condition: weather.condition),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(4),
               child: Temperature(
                 temperature: weather.temp,
                 high: weather.maxTemp,
@@ -32,7 +33,7 @@ class CombinedWeatherTemperature extends StatelessWidget {
         ),
         Center(
           child: Text(
-            weather.formattedCondition,
+            weather.condition.name,
             style: const TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w200,

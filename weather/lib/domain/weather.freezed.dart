@@ -21,12 +21,10 @@ Weather _$WeatherFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Weather {
   WeatherCondition get condition => throw _privateConstructorUsedError;
-  String get formattedCondition => throw _privateConstructorUsedError;
   double get minTemp => throw _privateConstructorUsedError;
   double get temp => throw _privateConstructorUsedError;
   double get maxTemp => throw _privateConstructorUsedError;
   int get locationId => throw _privateConstructorUsedError;
-  String get created => throw _privateConstructorUsedError;
   DateTime get lastUpdated => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
 
@@ -41,12 +39,10 @@ abstract class $WeatherCopyWith<$Res> {
       _$WeatherCopyWithImpl<$Res>;
   $Res call(
       {WeatherCondition condition,
-      String formattedCondition,
       double minTemp,
       double temp,
       double maxTemp,
       int locationId,
-      String created,
       DateTime lastUpdated,
       String location});
 }
@@ -62,12 +58,10 @@ class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
   @override
   $Res call({
     Object? condition = freezed,
-    Object? formattedCondition = freezed,
     Object? minTemp = freezed,
     Object? temp = freezed,
     Object? maxTemp = freezed,
     Object? locationId = freezed,
-    Object? created = freezed,
     Object? lastUpdated = freezed,
     Object? location = freezed,
   }) {
@@ -76,10 +70,6 @@ class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
               as WeatherCondition,
-      formattedCondition: formattedCondition == freezed
-          ? _value.formattedCondition
-          : formattedCondition // ignore: cast_nullable_to_non_nullable
-              as String,
       minTemp: minTemp == freezed
           ? _value.minTemp
           : minTemp // ignore: cast_nullable_to_non_nullable
@@ -96,10 +86,6 @@ class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
           ? _value.locationId
           : locationId // ignore: cast_nullable_to_non_nullable
               as int,
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String,
       lastUpdated: lastUpdated == freezed
           ? _value.lastUpdated
           : lastUpdated // ignore: cast_nullable_to_non_nullable
@@ -120,12 +106,10 @@ abstract class _$$_WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
   @override
   $Res call(
       {WeatherCondition condition,
-      String formattedCondition,
       double minTemp,
       double temp,
       double maxTemp,
       int locationId,
-      String created,
       DateTime lastUpdated,
       String location});
 }
@@ -142,12 +126,10 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
   @override
   $Res call({
     Object? condition = freezed,
-    Object? formattedCondition = freezed,
     Object? minTemp = freezed,
     Object? temp = freezed,
     Object? maxTemp = freezed,
     Object? locationId = freezed,
-    Object? created = freezed,
     Object? lastUpdated = freezed,
     Object? location = freezed,
   }) {
@@ -156,10 +138,6 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
               as WeatherCondition,
-      formattedCondition: formattedCondition == freezed
-          ? _value.formattedCondition
-          : formattedCondition // ignore: cast_nullable_to_non_nullable
-              as String,
       minTemp: minTemp == freezed
           ? _value.minTemp
           : minTemp // ignore: cast_nullable_to_non_nullable
@@ -176,10 +154,6 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
           ? _value.locationId
           : locationId // ignore: cast_nullable_to_non_nullable
               as int,
-      created: created == freezed
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as String,
       lastUpdated: lastUpdated == freezed
           ? _value.lastUpdated
           : lastUpdated // ignore: cast_nullable_to_non_nullable
@@ -197,12 +171,10 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
 class _$_Weather implements _Weather {
   const _$_Weather(
       {required this.condition,
-      required this.formattedCondition,
       required this.minTemp,
       required this.temp,
       required this.maxTemp,
       required this.locationId,
-      required this.created,
       required this.lastUpdated,
       required this.location});
 
@@ -212,8 +184,6 @@ class _$_Weather implements _Weather {
   @override
   final WeatherCondition condition;
   @override
-  final String formattedCondition;
-  @override
   final double minTemp;
   @override
   final double temp;
@@ -222,15 +192,13 @@ class _$_Weather implements _Weather {
   @override
   final int locationId;
   @override
-  final String created;
-  @override
   final DateTime lastUpdated;
   @override
   final String location;
 
   @override
   String toString() {
-    return 'Weather(condition: $condition, formattedCondition: $formattedCondition, minTemp: $minTemp, temp: $temp, maxTemp: $maxTemp, locationId: $locationId, created: $created, lastUpdated: $lastUpdated, location: $location)';
+    return 'Weather(condition: $condition, minTemp: $minTemp, temp: $temp, maxTemp: $maxTemp, locationId: $locationId, lastUpdated: $lastUpdated, location: $location)';
   }
 
   @override
@@ -239,14 +207,11 @@ class _$_Weather implements _Weather {
         (other.runtimeType == runtimeType &&
             other is _$_Weather &&
             const DeepCollectionEquality().equals(other.condition, condition) &&
-            const DeepCollectionEquality()
-                .equals(other.formattedCondition, formattedCondition) &&
             const DeepCollectionEquality().equals(other.minTemp, minTemp) &&
             const DeepCollectionEquality().equals(other.temp, temp) &&
             const DeepCollectionEquality().equals(other.maxTemp, maxTemp) &&
             const DeepCollectionEquality()
                 .equals(other.locationId, locationId) &&
-            const DeepCollectionEquality().equals(other.created, created) &&
             const DeepCollectionEquality()
                 .equals(other.lastUpdated, lastUpdated) &&
             const DeepCollectionEquality().equals(other.location, location));
@@ -257,12 +222,10 @@ class _$_Weather implements _Weather {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(condition),
-      const DeepCollectionEquality().hash(formattedCondition),
       const DeepCollectionEquality().hash(minTemp),
       const DeepCollectionEquality().hash(temp),
       const DeepCollectionEquality().hash(maxTemp),
       const DeepCollectionEquality().hash(locationId),
-      const DeepCollectionEquality().hash(created),
       const DeepCollectionEquality().hash(lastUpdated),
       const DeepCollectionEquality().hash(location));
 
@@ -282,12 +245,10 @@ class _$_Weather implements _Weather {
 abstract class _Weather implements Weather {
   const factory _Weather(
       {required final WeatherCondition condition,
-      required final String formattedCondition,
       required final double minTemp,
       required final double temp,
       required final double maxTemp,
       required final int locationId,
-      required final String created,
       required final DateTime lastUpdated,
       required final String location}) = _$_Weather;
 
@@ -296,8 +257,6 @@ abstract class _Weather implements Weather {
   @override
   WeatherCondition get condition;
   @override
-  String get formattedCondition;
-  @override
   double get minTemp;
   @override
   double get temp;
@@ -305,8 +264,6 @@ abstract class _Weather implements Weather {
   double get maxTemp;
   @override
   int get locationId;
-  @override
-  String get created;
   @override
   DateTime get lastUpdated;
   @override
